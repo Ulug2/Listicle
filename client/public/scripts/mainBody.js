@@ -1,8 +1,9 @@
+
 const renderMusicEvents = async () => {
     const response = await fetch('/musicEvents')
     const data = await response.json()
 
-    const mainContent = document.getElementById('main-content')
+    const mainContent = document.getElementById('general-content')
 
     if (data) {
         data.map(musicEvent => {
@@ -45,7 +46,7 @@ const renderMusicEvents = async () => {
     }
     else {
         const notAvailable = document.createElement('h2')
-        notAvailable.textContent = "No Events Available for you darling!"
+        notAvailable.textContent = "No Available events"
         mainContent.appendChild(notAvailable)
     }
 }
@@ -56,15 +57,14 @@ const renderMusicEvent = async () => {
     const response = await fetch('/musicEvents')
     const data = await response.json()
 
-    // const eventContent = document.getElementById('event-content')
 
     let event
 
     event = data.find(event => event.id === requestedId)
 
 
-    if (event){
-        
+    if (event) {
+
         document.getElementById('image').src = "https://www.festivalpro.com/articles/1568.png"
         document.getElementById('eventName').textContent = event.eventName
         document.getElementById('artistName').textContent = event.artistName
@@ -73,21 +73,21 @@ const renderMusicEvent = async () => {
         document.getElementById('price').textContent = 'Price: $' + event.ticketPrice
         document.getElementById('genre').textContent = event.genre
         document.title = `Listicle - ${event.eventName}`
-        
+
     }
     else {
-        // If no music event is found with the requested ID, redirect to the 404 page.
         window.location.href = '/404.html'
     }
 }
 
-const mainContent = document.getElementById('main-content');
+
+const mainContent = document.getElementById('general-content');
 const eventContent = document.getElementById('event-content');
 
-// This simplified logic correctly determines which function to run.
 if (mainContent) {
     renderMusicEvents();
-} 
+}
 else if (eventContent) {
     renderMusicEvent();
 }
+

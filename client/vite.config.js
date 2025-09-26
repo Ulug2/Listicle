@@ -7,8 +7,8 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/gifts': {
-        target: 'http://localhost:3001'
+      '/musicEvents': {
+        target: 'http://localhost:3002'
       }
     }
   }
