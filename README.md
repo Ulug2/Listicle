@@ -1,4 +1,4 @@
-# WEB103 Project 1 - *Lipsticle*
+# WEB103 Project 1 - *Listicle*
 
 Submitted by: **Ulykbek Khairulla**
 
